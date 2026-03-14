@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion as Motion} from "framer-motion";
 import { FiFilter, FiPlus, FiSearch } from "react-icons/fi";
 import OnboardingModal from "./components/OnboardingModal.jsx";
@@ -38,6 +38,7 @@ function App() {
   const [editingTask, setEditingTask] = useState(null);
   const [formOpen, setFormOpen] = useState(false);
   const [celebrating, setCelebrating] = useState(false);
+  const formContainerRef = useRef(null);
 
   useEffect(() => {
     const storedUser = loadJson(USER_KEY, null);
@@ -75,6 +76,16 @@ function App() {
     if (typeof window === "undefined") return;
     window.localStorage.setItem(TASKS_KEY, JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!formOpen) return;
+    if (!formContainerRef.current) return;
+    // On small screens, scroll the task form into view when it opens
+    if (window.innerWidth < 768) {
+      formContainerRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [formOpen]);
 
   const filteredTasks = useMemo(() => {
     return tasks.filter((task) => {
@@ -334,7 +345,10 @@ function App() {
               onDeleteTask={handleDeleteTask}
             />
           </div>
-          <div className="col-span-12 flex flex-col gap-4 md:col-span-3">
+          <div
+            ref={formContainerRef}
+            className="col-span-12 flex flex-col gap-4 md:col-span-3"
+          >
             <AnimatePresence initial={false}>
               {formOpen && (
                 <TaskForm

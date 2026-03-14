@@ -109,7 +109,7 @@ function TaskForm({ open, initialTask, onSave, onClose }) {
                 placeholder="Optional details, links, or notes"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <label className="text-xs font-medium" htmlFor="priority">
                   Priority

@@ -196,7 +196,7 @@ function ChatbotAssistant({ tasks, onAddTask }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.94 }}
             transition={{ type: "spring", stiffness: 240, damping: 22 }}
-            className="fixed bottom-28 right-6 z-40 w-[420px] max-w-[95vw] overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl shadow-slate-900/40 dark:border-slate-700 dark:bg-slate-950"
+            className="fixed bottom-24 inset-x-4 z-40 mx-auto max-w-md overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-2xl shadow-slate-900/40 dark:border-slate-700 dark:bg-slate-950 sm:bottom-28 sm:right-6 sm:left-auto sm:mx-0 sm:w-[420px] sm:max-w-[95vw]"
           >
             <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3 text-sm dark:border-slate-800">
               <div className="flex items-center gap-2">
