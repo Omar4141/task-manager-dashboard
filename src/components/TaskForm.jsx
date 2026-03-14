@@ -109,7 +109,7 @@ function TaskForm({ open, initialTask, onSave, onClose }) {
                 placeholder="Optional details, links, or notes"
               />
             </div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-1">
               <div className="space-y-1.5">
                 <label className="text-xs font-medium" htmlFor="priority">
                   Priority
@@ -188,7 +188,7 @@ function TaskForm({ open, initialTask, onSave, onClose }) {
                 type="date"
                 value={form.dueDate}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none transition focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40 dark:border-slate-700 dark:bg-slate-900"
+                className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none transition appearance-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-400/40 dark:border-slate-700 dark:bg-slate-900"
               />
             </div>
             <div className="mt-auto flex items-center justify-between pt-3">
